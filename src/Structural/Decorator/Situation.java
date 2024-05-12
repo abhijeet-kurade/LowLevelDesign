@@ -28,7 +28,7 @@ class Notifier{
 
     public void send(String message){
         String mailId = databaseService.getMailByUsername(getUsername());
-        System.out.println("Sending "+message+ "by mail to "+ mailid;
+        System.out.println("Sending "+message+ "by mail to "+ mailId);
     }
     public String getUsername() {
         return username;
