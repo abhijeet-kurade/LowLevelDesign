@@ -32,11 +32,19 @@ class Common extends Burger{
 
 
 class Restaurant{
+    SimpleBurgerFactory factory;
+    public Burger createBurger(String type){
+        Burger b = factory.createBurger(type);
+        b.prepare();
+        return b;
+    }
+}
 
+class SimpleBurgerFactory{
     public Burger createBurger(String type){
         Burger b;
         if(type.equals("Chicken")){
-             b = new Chicken();
+            b = new Chicken();
         }
         else if(type.equals("PerryPerry")){
             b = new PerryPerry();
@@ -44,7 +52,6 @@ class Restaurant{
         else {
             b = new Common();
         }
-        b.prepare();
         return b;
     }
 }
