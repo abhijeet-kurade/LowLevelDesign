@@ -22,6 +22,14 @@ class PerryPerry extends Burger{
     }
 }
 
+class Veggie extends Burger{
+
+    @Override
+    void prepare() {
+
+    }
+}
+
 class Common extends Burger{
 
     @Override
@@ -31,12 +39,31 @@ class Common extends Burger{
 }
 
 
-class Restaurant{
-    SimpleBurgerFactory factory;
-    public Burger createBurger(String type){
-        Burger b = factory.createBurger(type);
-        b.prepare();
-        return b;
+abstract class Restaurant{
+    public abstract Burger createBurger(String type);
+}
+
+class ChickenBurgerRestaurant extends Restaurant{
+
+    @Override
+    public Burger createBurger(String type) {
+        return new Chicken();
+    }
+}
+
+class VeggieBurgerRestaurant extends Restaurant{
+
+    @Override
+    public Burger createBurger(String type) {
+        return new Veggie();
+    }
+}
+
+class PerryPerryBurgerRestaurant extends Restaurant{
+
+    @Override
+    public Burger createBurger(String type) {
+        return new PerryPerry();
     }
 }
 

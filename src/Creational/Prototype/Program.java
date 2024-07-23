@@ -1,6 +1,13 @@
 package Creational.Prototype;
 
+import java.util.HashMap;
+
 public class Program {
+    public static void main(String[] args) {
+        String filename = args[0];
+        String filepath = args[1];
+        String date = args[2];
+    }
 }
 
 interface Prototype{
@@ -55,7 +62,7 @@ class Car extends Vehicle{
         this.carEngine = car.carEngine;
         this.isPowerSteering = car.isPowerSteering;
         this.gpsSystem = car.gpsSystem; // Shallow copy
-        this.gpsSystem = gpsSystem.clone(); // Deep copy
+        this.gpsSystem = gpsSystem.clone(); // Deep copy  another way -> new GpsSystem();
     }
     @Override
     public Car clone() {

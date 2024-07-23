@@ -13,6 +13,9 @@ class DbToVmDependencyType implements DependencyFactory {
     }
 }
 
+class DbToVMSubClass extends DbToVmDependencyType{
+
+}
 class DbToStorageDependencyType implements DependencyFactory {
 
     @Override

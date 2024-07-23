@@ -1,5 +1,8 @@
 package ARG;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public interface IStrategy {
     void execute();
 }
@@ -14,6 +17,7 @@ class CmsQueryStrategy implements IStrategy{
         this.cmsQuery = cmsQuery;
         this.startTime = startTime;
         this.endTime = endTime;
+        Map<Integer, Integer> mp = new HashMap<>();
     }
 
 

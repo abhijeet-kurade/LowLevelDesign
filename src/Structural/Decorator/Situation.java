@@ -1,11 +1,9 @@
 package Structural.Decorator;
 
-import java.sql.DatabaseMetaData;
-
 public class Situation {
 }
 
-class DatabaseService{
+class DatabaseService1 {
     public String getMailByUsername(String username){
         return username+"@outlook.com";
     }
@@ -18,16 +16,16 @@ class DatabaseService{
         return username+"@mobile";
     }
 }
-class Notifier{
+class Notifier1 {
     private final String username;
-    protected final DatabaseService databaseService;
-    public Notifier(String username) {
+    protected final DatabaseService1 databaseService1;
+    public Notifier1(String username) {
         this.username = username;
-        this.databaseService = new DatabaseService();
+        this.databaseService1 = new DatabaseService1();
     }
 
     public void send(String message){
-        String mailId = databaseService.getMailByUsername(getUsername());
+        String mailId = databaseService1.getMailByUsername(getUsername());
         System.out.println("Sending "+message+ "by mail to "+ mailId);
     }
     public String getUsername() {
@@ -36,11 +34,12 @@ class Notifier{
 }
 
 /**
- * Customer is expecting more ways to more ways to get notifies like whatsapp and mobile sms
+ * Customer is expecting more ways to more ways to get
+ * notifies like whatsapp and mobile sms
  *
  */
 
-class WhatsappNotifies extends Notifier{
+class WhatsappNotifies extends Notifier1 {
 
     public WhatsappNotifies(String username) {
         super(username);
@@ -48,11 +47,12 @@ class WhatsappNotifies extends Notifier{
 
     @Override
     public void send(String message) {
-        super.send(message);
+        String whatsapp = databaseService1.getWhatsAppNumByUsername(getUsername());
+        System.out.println("Sending whatsapp notification to " + whatsapp);
     }
 }
 
-class SMSNotifies extends Notifier{
+class SMSNotifies extends Notifier1 {
 
     public SMSNotifies(String username) {
         super(username);
@@ -60,7 +60,8 @@ class SMSNotifies extends Notifier{
 
     @Override
     public void send(String message) {
-        super.send(message);
+        String mobile = databaseService1.getMobileNumByUsername(getUsername());
+        System.out.println("Sending whatsapp notification to " + mobile);
     }
 }
 
